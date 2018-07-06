@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 750px;
+    height: 100px;
+    background: #f96a1b;
+}
+
+img {
+    border: 1px solid #d9d9d9; /*px*/
+}
+
+footer {
+    background-color: #999; /* color is gray */
+    height: 50px; /* px */
+    border: 1px solid #d9d9d9; /*no*/
+    -webkit-animation: anim1 linear infinite;
+}
+
+.selector {
+    width: 150px;
+    height: 64px; /*px*/
+    font-size: 28px; /*px*/
+    border: 1px solid #ddd; /*no*/
+  }

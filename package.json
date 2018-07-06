@@ -1,0 +1,21 @@
+{
+  "name": "px2scalability",
+  "version": "0.0.1",
+  "description": "vw rem",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./test/base.test.js",
+    "testAll": "jest --verbose --coverage",
+    "clean": "rm -rf coverage test/outputs"
+  },
+  "keywords": [],
+  "author": "mcattx <mcattx@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "css": "^2.2.3"
+  }
+}
