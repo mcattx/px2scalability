@@ -1,6 +1,6 @@
 {
   "name": "px2scalability",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "vw rem",
   "main": "index.js",
   "directories": {
@@ -14,8 +14,7 @@
   "keywords": [],
   "author": "mcattx <mcattx@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "css": "^2.2.3"
   }
 }
