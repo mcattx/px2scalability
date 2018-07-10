@@ -1,9 +1,11 @@
 const fs = require('fs')
 const path = require('path')
-const cssPath = path.join(__dirname, './cases/style.css')
-const caseText = fs.readFileSync(cssPath, {
-    encoding: 'utf8'
-})
+const pxPath = path.join(__dirname, './cases/style.px.css')
+const vwPath = path.join(__dirname, './cases/style.vw.css')
+const remPath = path.join(__dirname, './cases/style.rem.css')
+const pxCaseText = fs.readFileSync(pxPath, { encoding: 'utf8' })
+const vwCaseText = fs.readFileSync(vwPath, { encoding: 'utf8' })
+const remCaseText = fs.readFileSync(remPath, { encoding: 'utf8' })
 
 const Px2scalability = require('../lib/px2scalability')
 
@@ -11,8 +13,10 @@ const px2scalability = new Px2scalability({
     'precision': 5
 })
 
-let remins = px2scalability.init(caseText, 'px2rem')
-let vwins = px2scalability.init(caseText, 'px2vw')
+let remIns = px2scalability.init(pxCaseText, 'px2rem')
+let vwIns = px2scalability.init(pxCaseText, 'px2vw')
+let vwTestIns = px2scalability.init(vwCaseText, 'vw2rem')
+let remTestIns = px2scalability.init(remCaseText, 'rem2vw')
 
 
 function createFile (cssString, suffix) {
@@ -33,5 +37,8 @@ function createFile (cssString, suffix) {
     })
 }
 
-createFile(remins, 'rem')
-createFile(vwins)
+createFile(remIns, 'px2rem')
+createFile(vwIns, 'px2vw')
+
+createFile(vwTestIns, 'vw2rem')
+createFile(remTestIns, 'rem2vw')

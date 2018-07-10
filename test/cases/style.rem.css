@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    width: 10rem;
+    height: 1.333333rem;
+    background: #f96a1b;
+  }
