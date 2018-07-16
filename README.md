@@ -1,5 +1,6 @@
 # px2scalability
 
+> 中文文档[传送门](./README-zh.md)
 
 This set of tools contains:
 
