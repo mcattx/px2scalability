@@ -4,9 +4,9 @@
 这套工具包含:
 
 * a CLI tool(@todo)
-* [Gulp plugin](https://www.npmjs.com/package/gulp-px3rem)(@todo)
+* [Gulp plugin]()(@todo)
 * [Webpack loader](https://github.com/titancat/px2scalability-loader)
-* [Postcss plugin](https://www.npmjs.com/package/postcss-px2rem)(@todo)
+* [Postcss plugin]()(@todo)
 
 ## 注意
 
