@@ -3,10 +3,10 @@
 
 这套工具包含:
 
-* a CLI tool
-* [Gulp plugin](https://www.npmjs.com/package/gulp-px3rem)
-* [Webpack loader](https://www.npmjs.com/package/px2rem-loader)
-* [Postcss plugin](https://www.npmjs.com/package/postcss-px2rem)
+* a CLI tool(@todo)
+* [Gulp plugin](https://www.npmjs.com/package/gulp-px3rem)(@todo)
+* [Webpack loader](https://github.com/titancat/px2scalability-loader)
+* [Postcss plugin](https://www.npmjs.com/package/postcss-px2rem)(@todo)
 
 ## 注意
 
@@ -17,12 +17,10 @@
 ### API
 
 ```
-var Px2rem = require('px2rem');
-var px2remIns = new Px2rem([config]);
-var originCssText = '...';
-var dpr = 2;
-var newCssText = px2remIns.generateRem(originCssText); // generate rem version stylesheet
-var newCssText = px2remIns.generateThree(originCssText, dpr); // generate @1x, @2x and @3x version stylesheet
+const Px2scalability = require('px2scalability')
+const px2scalabilityIns = new Px2scalability()
+const originCssText = '...';
+px2scalabilityIns.init(originCssText, 'px2vw')
 ```
 
 ### 示例
@@ -33,9 +31,9 @@ One raw stylesheet: `test.css`
 
 ```
 .selector {
-  width: 150px;
-  height: 64px; /*px*/
-  font-size: 28px; /*px*/
+  width: 750px;
+  height: 75px; 
+  font-size: 15px;
   border: 1px solid #ddd; /*no*/
 }
 ```
@@ -46,9 +44,9 @@ vw 版本: `test.vw.css`
 
 ```
 .selector {
-  width: 150px;
-  height: 64px; /*px*/
-  font-size: 28px; /*px*/
+  width: 100vw;
+  height: 10vw; 
+  font-size: 2vw;
   border: 1px solid #ddd; /*no*/
 }
 ```
@@ -57,12 +55,35 @@ rem 版本: `test.rem.css`
 
 ```
 .selector {
-  width: 150px;
-  height: 64px; /*px*/
-  font-size: 28px; /*px*/
+  width: 10rem;
+  height: 1rem; 
+  font-size: .2rem;
   border: 1px solid #ddd; /*no*/
 }
 ```
+
+# 可选项
+
+```
+px2scalabilityIns.init({
+  pageWidth: 750, // {Number}类型
+  precision: 6, // {Number}类型
+  keepComment: 'no' // {String}类型
+}, Type)
+```
+
+### 配置
+
+- pageWidth: 750 : 设计稿宽度，默认值是 750
+- precision: 6 : 精度，默认是 6 位
+- keepComment: 'no' : 代码检测到注释里包含 `'no'` 的时候不会对这行进行单位转换
+
+### Type
+
+- 'px2vw' : 把 `px` 单位转为 `vw` 单位
+- 'px2rem' : 把 `px` 单位转为 `rem` 单位
+- 'vw2rem' : 把 `vw` 单位转为 `rem` 单位
+- 'rem2vw' : 把 `rem` 单位转为 `vw` 单位
 
 # 更新日志
 

@@ -3,10 +3,10 @@
 
 This set of tools contains:
 
-* a CLI tool
-* [Gulp plugin](https://www.npmjs.com/package/gulp-px3rem)
-* [Webpack loader](https://www.npmjs.com/package/px2rem-loader)
-* [Postcss plugin](https://www.npmjs.com/package/postcss-px2rem)
+* a CLI tool(@todo)
+* [Gulp plugin](https://www.npmjs.com/package/gulp-px3rem)(@todo)
+* [Webpack loader](https://github.com/titancat/px2scalability-loader)
+* [Postcss plugin](https://www.npmjs.com/package/postcss-px2rem)(@todo)
 
 ## Notice
 
@@ -17,12 +17,10 @@ If you don't intend to transform the original value, eg: 1px border, add `/*no*/
 ### API
 
 ```
-var Px2rem = require('px2rem');
-var px2remIns = new Px2rem([config]);
-var originCssText = '...';
-var dpr = 2;
-var newCssText = px2remIns.generateRem(originCssText); // generate rem version stylesheet
-var newCssText = px2remIns.generateThree(originCssText, dpr); // generate @1x, @2x and @3x version stylesheet
+const Px2scalability = require('px2scalability')
+const px2scalabilityIns = new Px2scalability()
+const originCssText = '...';
+px2scalabilityIns.init(originCssText, 'px2vw')
 ```
 
 ### Example
@@ -33,35 +31,60 @@ One raw stylesheet: `test.css`
 
 ```
 .selector {
-  width: 150px;
-  height: 64px; /*px*/
-  font-size: 28px; /*px*/
+  width: 750px;
+  height: 75px; 
+  font-size: 15px;
   border: 1px solid #ddd; /*no*/
 }
 ```
 
 #### After processing:
 
-Rem version: `test.debug.css`
+vw version: `test.vw.css`
 
 ```
 .selector {
-  width: 2rem;
-  border: 1px solid #ddd;
-}
-[data-dpr="1"] .selector {
-  height: 32px;
-  font-size: 14px;
-}
-[data-dpr="2"] .selector {
-  height: 64px;
-  font-size: 28px;
-}
-[data-dpr="3"] .selector {
-  height: 96px;
-  font-size: 42px;
+  width: 100vw;
+  height: 10vw; 
+  font-size: 2vw;
+  border: 1px solid #ddd; /*no*/
 }
 ```
+
+---
+rem version: `test.rem.css`
+
+```
+.selector {
+  width: 10rem;
+  height: 1rem; 
+  font-size: .2rem;
+  border: 1px solid #ddd; /*no*/
+}
+```
+
+# Options
+
+```
+px2scalabilityIns.init({
+  pageWidth: 750, // {Number}
+  precision: 6, // {Number}
+  keepComment: 'no' // {String}
+}, Type)
+```
+
+### Config
+
+- pageWidth: 750 : Design draft width, default value: 750 
+- precision: 6 : Precision, default value: 6
+- keepComment: 'no' : The code won't convert if this flag in comments is detected
+
+### Type
+
+- 'px2vw' : Transform `px` unit to `vw` unit
+- 'px2rem' : Transform `px` unit to `rem` unit
+- 'vw2rem' : Transform `vw` unit to 'rem' unit
+- 'rem2vw' : Transform `rem` unit to `vw` unit
 
 # Change Log
 
