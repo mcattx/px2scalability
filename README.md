@@ -78,7 +78,7 @@ px2scalabilityIns.init({
 
 - pageWidth: 750 : Design draft width, default value: 750 
 - precision: 6 : Precision, default value: 6
-- keepComment: 'no' : The code won't convert if this flag in comments is detected
+- keepComment: `no` : The code won't convert if this flag in comments is detected
 
 ### Type
 
