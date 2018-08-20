@@ -82,10 +82,10 @@ px2scalabilityIns.init({
 
 ### Type
 
-- 'px2vw' : Transform `px` unit to `vw` unit
-- 'px2rem' : Transform `px` unit to `rem` unit
-- 'vw2rem' : Transform `vw` unit to 'rem' unit
-- 'rem2vw' : Transform `rem` unit to `vw` unit
+- **px2vw** : Transform `px` unit to `vw` unit
+- **px2rem** : Transform `px` unit to `rem` unit
+- **vw2rem** : Transform `vw` unit to `rem` unit
+- **rem2vw** : Transform `rem` unit to `vw` unit
 
 # Change Log
 
