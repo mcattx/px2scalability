@@ -76,7 +76,7 @@ px2scalabilityIns.init({
 
 - pageWidth: 750 : 设计稿宽度，默认值是 750
 - precision: 6 : 精度，默认是 6 位
-- keepComment: 'no' : 代码检测到注释里包含 `'no'` 的时候不会对这行进行单位转换
+- keepComment: `no` : 代码检测到注释里包含 `'no'` 的时候不会对这行进行单位转换
 
 ### Type
 
